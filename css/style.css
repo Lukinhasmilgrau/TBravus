@@ -2,8 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: rgb(0, 2, 117);
     color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: white;
 }
 
 nav {
@@ -12,12 +18,24 @@ nav {
     box-sizing: border-box;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: large;
-    
+    background-color: rgb(0, 0, 255);
+    z-index: 1000;
+    top: 0;
+}
+
+header {
+    max-width: 1800px;
+    width: 100%;
+    flex: 1 0 auto;
+}
+
+nav {
+    max-width: 4000px;
+    width: 100%;
 }
 
 .navbar {
-    background-color: rgb(0, 0, 0);
-    
+    background-color: rgb(1, 1, 90);
 }
 
 .navbar ul {
@@ -40,17 +58,249 @@ nav {
 
 .navbar a:hover {
     color: rgb(251, 255, 0);
-
 }
 
-@media(min-width: 0px)and(max-width: 450px) {
+@media(min-width: 0px) and (max-width: 450px) {
     .navbar a {
         font-size: 5px;
     }
 }
 
-@media(min-width: 768px) and (max-width: 1306px) {
+@media(min-width: 768px) and (max-width: 1406px) {
     .navbar a {
         font-size: 25px;
     }
+}
+
+.rodape {
+    background-color: rgb(1, 1, 90);
+    text-align: center;
+    padding: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+@media(max-width: 575px) {
+    .rodape {
+        font-size: 10px;
+        max-width: 100%;
+        padding: 20px;
+        bottom: 0;
+        position: absolute;
+    }
+    .rodape p {
+        max-width: 100%;
+        width: 900PX;
+    }
+    .navbar a {
+        font-size: 14px;
+    }
+}
+
+.slider {
+    margin: 0 auto;
+    width: 680px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 30px;
+    box-shadow: 0 2px 10px rgb(0,0,0,0.5);
+    background-color: rgb(255, 255, 255);
+    
+}
+
+.slides {
+    width: 400%;
+    height: 400px;
+    display: flex;
+    margin-top: 30px;
+    border-radius: px;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    width: 25%;
+    position: relative;
+    transition: 2s;
+}
+
+.slide img {
+    width: 800px;
+}
+
+.manual-navigation {
+    position: absolute;
+    width: 100%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+.manual-btn:hover {
+    background-color: white;
+}
+
+#radio1:checked ~ .first{
+    margin-left: 0;
+} 
+
+#radio2:checked ~ .first{
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .first{
+    margin-left: -50%;
+}
+
+#radio4:checked ~ .first{
+    margin-left: -75%;
+}
+
+.navigation-auto {
+    border: 2px solid blue;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.navigation-auto {
+    position: absolute;
+    width: 800px;
+    margin-top: 360px;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background-color: white;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+    background-color: white;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+    background-color: white;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4{
+    background-color: white;
+}
+
+#radio5:checked ~ .navigation-auto .auto-btn5{
+    background-color: white;
+}
+
+#radio6:checked ~ .navigation-auto .auto-btn6{
+    background-color: white;
+}
+
+#radio7:checked ~ .navigation-auto .auto-btn7{
+    background-color: white;
+}
+
+/* ===== MELHORIAS DE RESPONSIVIDADE ADICIONADAS ABAIXO ===== */
+
+/* Imagens responsivas */
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* Slider responsivo */
+.slider {
+    width: 90%;
+    max-width: 100%;
+    margin: 30px auto;
+}
+
+.slides {
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    min-width: 100%;
+    transition: all 0.5s ease-in-out;
+}
+
+.manual-navigation {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    padding: 4px;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
+
+.manual-btn:hover {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+/* Navegação automática */
+.navigation-auto {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-auto div {
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    border: 1.5px solid white;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+/* Rodapé responsivo */
+footer {
+    clear: both;
+    width: 100%;
+}
+
+.rodape {
+    position: relative;
+    margin-top: 40px;
+    font-size: 14px;
+    padding: 12px;
 }
